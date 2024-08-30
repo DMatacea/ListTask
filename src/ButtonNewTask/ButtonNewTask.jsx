@@ -1,7 +1,7 @@
-function CreateTodoButton(){
+function CreateNewButton(){
     return(
         <button>Create New Button</button>
     )
 }
 
-export {CreateTodoButton}
+export {CreateNewButton}

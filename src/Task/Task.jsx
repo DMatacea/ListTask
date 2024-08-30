@@ -1,4 +1,4 @@
-function TodoItem(props){
+function Task(props){
     return (
       <li>
         <span>V</span>
@@ -8,4 +8,4 @@ function TodoItem(props){
     );
 }
 
-export {TodoItem}
+export {Task}

@@ -1,7 +1,7 @@
-function TodoFilter(){
+function Filter(){
     return (
       <input placeholder="Cortar Cebolla"/>
     )
 }
 
-export {TodoFilter}
+export {Filter}

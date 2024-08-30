@@ -1,34 +1,35 @@
 import React from 'react';
-import { TodoCounter } from './TodoCounter';
-import { TodoFilter } from './TodoFilter';
-import { TodoList } from './TodoList';
-import { TodoItem } from './TodoItem';
-import { CreateTodoButton } from './CreateTodoButton';
-import './App.css';
+import { Counter } from './Counter/Counter';
+import { Filter } from './Filter/Filter';
+import { List } from './List/List';
+import { Task } from './Task/Task';
+import { CreateNewButton } from './ButtonNewTask/ButtonNewTask';
 
-const defaultTodo =[ 
+const list =[ 
 {text : "Dormir", completed : false},
 {text : "Comer", completed : true},
 {text : "Bañarse", completed : false}
 ]
 function App() {
   return (
-    <React.Fragment>
-      <TodoCounter completed={16} total={25} />
-      <TodoFilter />
+    <>
+      <div>
+        <Counter completed={16} total={25} />
+        <Filter />
 
-      <TodoList>
-        {defaultTodo.map(todo =>(
-          <TodoItem 
-            key={todo.text} 
-            text={todo.text}
-            completed={todo.completed}
-          />
-          ))}
-      </TodoList>
+        <List>
+          {list.map(todo =>(
+            <Task 
+              key={todo.text} 
+              text={todo.text}
+              completed={todo.completed}
+            />
+            ))}
+        </List>
 
-      <CreateTodoButton />
-    </React.Fragment>
+        <CreateNewButton />
+      </div>
+    </>
   );
 }
 

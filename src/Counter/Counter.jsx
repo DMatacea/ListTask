@@ -1,4 +1,6 @@
-function TodoCounter({ total, completed }) {
+import "./Counter.css"
+
+function Counter({ total, completed }) {
   return (
     <h1>
       Has completado {completed} de {total} TODOS
@@ -6,4 +8,4 @@ function TodoCounter({ total, completed }) {
   );
 }
 
-export { TodoCounter };
+export { Counter };
