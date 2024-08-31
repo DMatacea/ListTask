@@ -1,7 +1,12 @@
-function CreateNewButton(){
+function CreateAndDeleteButton(){
     return(
-        <button>Create New Button</button>
+        <div>
+            <button>Create</button> 
+            <button>Delete</button>
+        </div>
+
+
     )
 }
 
-export {CreateNewButton}
+export {CreateAndDeleteButton}

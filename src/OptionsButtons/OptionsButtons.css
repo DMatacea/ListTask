@@ -1,0 +1,16 @@
+.optionsButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 4% 0 16%;
+}
+
+button{
+    border: 1px solid #DCF2F1;
+    border-radius: 4px;
+    background: none;
+    cursor: pointer;
+    padding: 4px 8px;
+}

@@ -1,11 +1,11 @@
 import "./Counter.css"
 
-function Counter({ total, completed }) {
+function NamePage({}) {
   return (
-    <h1>
-      Has completado {completed} de {total} TODOS
-    </h1>
+    <p>
+      Your List Task
+    </p>
   );
 }
 
-export { Counter };
+export { NamePage };

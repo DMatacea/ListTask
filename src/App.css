@@ -1,0 +1,20 @@
+.YourListTask{
+    display: grid;
+    place-items: center;
+    grid-template-rows: auto 300px;
+    width: 60%;
+    height: 92%;
+    border: 1px solid black;
+    border-radius: 8px;
+    margin: 4px;
+}
+
+.SetAndChat{
+    display: grid;
+    place-items: center;
+    width: 40%;
+    height: 92%;
+    border: 1px solid black;
+    border-radius: 8px;
+    margin: 4px;
+}

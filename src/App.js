@@ -1,33 +1,58 @@
-import React from 'react';
-import { Counter } from './Counter/Counter';
+import React, { useState } from 'react';
+import './App.css'
+import { NamePage } from './Counter/Counter';
 import { Filter } from './Filter/Filter';
 import { List } from './List/List';
 import { Task } from './Task/Task';
-import { CreateNewButton } from './ButtonNewTask/ButtonNewTask';
+import { CreateAndDeleteButton } from './ButtonNewTask/ButtonNewTask';
+import { OptionsButtons } from './OptionsButtons/OptionsButtons';
+import { Chat_GPT } from './Chat-GPT/Chat-GPT';
+import { SetUpTask } from './SetUpTask/SetUpTask';
 
-const list =[ 
-{text : "Dormir", completed : false},
-{text : "Comer", completed : true},
-{text : "Bañarse", completed : false}
-]
+
 function App() {
+  const [taskOption, setTaskOption] = useState([ 
+    { id: 1, text: "Dormir", completed: true },
+    { id: 2, text: "Comer", completed: false },
+    { id: 3, text: "Bañarse", completed: false }
+  ]);
+
+  const toggleTask = (id) => {
+    const updatedTask = taskOption.map(stateTask => 
+      stateTask.id === id ? { ...stateTask, completed: !stateTask.completed } : stateTask
+    );
+    setTaskOption(updatedTask);
+  }
+
   return (
     <>
-      <div>
-        <Counter completed={16} total={25} />
-        <Filter />
+      <div className='YourListTask'>
+        <NamePage /> 
 
+        <OptionsButtons />
         <List>
-          {list.map(todo =>(
+          {taskOption.map(task => (
             <Task 
-              key={todo.text} 
-              text={todo.text}
-              completed={todo.completed}
+              key={task.id} 
+              text={task.text}
+              completed={task.completed}
+              onToggle={() => toggleTask(task.id)}
             />
-            ))}
+          ))}
         </List>
-
-        <CreateNewButton />
+      </div>
+      <div className='SetAndChat'>
+        <section id='Search'>
+          <SetUpTask />
+          <Filter />
+          <section className='Create_delete_button'>
+            <CreateAndDeleteButton />
+          </section>
+          
+        </section>
+        <section id='Chat_GPT'>
+          <Chat_GPT />
+        </section>
       </div>
     </>
   );

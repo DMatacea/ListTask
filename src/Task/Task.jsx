@@ -1,11 +1,16 @@
-function Task(props){
-    return (
-      <li>
-        <span>V</span>
-        <p>{props.text}</p>
-        <span>X</span>
-      </li>
-    );
+function Task({ text, completed, onToggle }) {
+  return (
+    <li>
+      <input 
+        type="checkbox" 
+        checked={completed} 
+        onChange={onToggle} 
+      />
+      <span style={{ textDecoration: completed ? 'line-through' : 'none' }}>
+        {text}
+      </span>
+    </li>
+  );
 }
 
 export {Task}
