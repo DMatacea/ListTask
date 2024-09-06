@@ -1,3 +1,5 @@
+import './List.css'
+
 function List({children}){
     return (
       <ul>

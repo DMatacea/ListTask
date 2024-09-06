@@ -26,7 +26,7 @@ function App() {
 
   return (
     <>
-      <div className='YourListTask'>
+      <div id='YourListTask'>
         <NamePage /> 
 
         <OptionsButtons />
@@ -41,7 +41,7 @@ function App() {
           ))}
         </List>
       </div>
-      <div className='SetAndChat'>
+      <div id='SetAndChat'>
         <section id='Search'>
           <SetUpTask />
           <Filter />

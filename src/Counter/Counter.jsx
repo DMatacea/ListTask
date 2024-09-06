@@ -2,9 +2,12 @@ import "./Counter.css"
 
 function NamePage({}) {
   return (
-    <p>
-      Your List Task
-    </p>
+    <section id="namePage">
+      <p>
+        Your List Task
+      </p>    
+    </section>
+
   );
 }
 

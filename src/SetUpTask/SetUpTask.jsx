@@ -1,3 +1,5 @@
+import './SetUpTask.css'
+
 function SetUpTask(){
     return(
         <p>

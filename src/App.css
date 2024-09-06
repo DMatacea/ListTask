@@ -1,20 +1,33 @@
-.YourListTask{
-    display: grid;
-    place-items: center;
+#YourListTask{
+    display: flex;
+    flex-direction: column;
     grid-template-rows: auto 300px;
     width: 60%;
     height: 92%;
-    border: 1px solid black;
+    border: 3px solid var(--section-importan);
     border-radius: 8px;
     margin: 4px;
 }
 
-.SetAndChat{
-    display: grid;
-    place-items: center;
+#SetAndChat{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 40%;
-    height: 92%;
-    border: 1px solid black;
+    height: 92%;    
+    border: 3px solid var(--section-importan);
     border-radius: 8px;
     margin: 4px;
+}
+
+#Search{
+    width: 92%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--white);
+    border-radius: 8px;
+    margin: 8px 0;
 }

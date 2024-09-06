@@ -1,19 +1,17 @@
-p {
-    grid-column: 1 / 3;
-    height: 20%;
+#namePage {
+    font-family: 'Merriweather',-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
     font-size: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    height: 12%;
+  }
+  
+  p{
     margin: 0;
-  }
-  
-  div {
-    grid-row: 2 / 3;    /* El `div` está en la segunda fila */
-    height: 16%;      /* Altura del `div` */
-  }
-  
-  ul {
-    grid-column: 1 / 2; /* La lista ocupa la primera columna */
-    height: 64%;      /* Altura de la lista */
-    overflow-y: auto;   /* Habilita el desplazamiento vertical si es necesario */
-  }
+    color: var(--title);
+}
   

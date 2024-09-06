@@ -2,11 +2,11 @@ import './OptionsButtons.css'
 
 function OptionsButtons(){
     return(
-        <div className="optionsButtons">
+        <div id="optionsButtons">
             <button>Task</button>
             <button>Doing</button>
             <button>Finished</button>
-            <img src="./" alt="" />
+            <img src="./" alt="img" />
         </div>
     )
 }

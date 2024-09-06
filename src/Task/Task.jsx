@@ -1,3 +1,5 @@
+import './Task.css'
+
 function Task({ text, completed, onToggle }) {
   return (
     <li>
