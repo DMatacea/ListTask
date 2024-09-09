@@ -1,9 +1,11 @@
+import './ButtonNewTask.css'
+
 function CreateAndDeleteButton(){
     return(
-        <div>
+        <section id='CreateAndDelete'>
             <button>Create</button> 
             <button>Delete</button>
-        </div>
+        </section>
 
 
     )

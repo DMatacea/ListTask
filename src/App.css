@@ -3,10 +3,12 @@
     flex-direction: column;
     grid-template-rows: auto 300px;
     width: 60%;
-    height: 92%;
-    border: 3px solid var(--section-importan);
-    border-radius: 8px;
-    margin: 4px;
+    height: 96%;
+    /* border: 3px solid var(--section-importan); */
+    border-right: 1px solid var(--section-importan);
+    /* border-radius: 8px; */
+    margin: 4px 0 4px 4px;
+    padding-right: 8px;
 }
 
 #SetAndChat{
@@ -14,8 +16,8 @@
     flex-direction: column;
     align-items: center;
     width: 40%;
-    height: 92%;    
-    border: 3px solid var(--section-importan);
+    height: 96%;    
+    /* border: 3px solid var(--section-importan); */
     border-radius: 8px;
     margin: 4px;
 }
@@ -27,7 +29,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid var(--white);
+    border: 1px solid var(--border-element);
     border-radius: 8px;
     margin: 8px 0;
 }

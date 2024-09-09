@@ -45,10 +45,7 @@ function App() {
         <section id='Search'>
           <SetUpTask />
           <Filter />
-          <section className='Create_delete_button'>
-            <CreateAndDeleteButton />
-          </section>
-          
+          <CreateAndDeleteButton /> 
         </section>
         <section id='Chat_GPT'>
           <Chat_GPT />
