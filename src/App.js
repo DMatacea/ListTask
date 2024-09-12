@@ -20,16 +20,23 @@ function App() {
   const toggleTask = (id) => {
     const updatedTask = taskOption.map(stateTask => 
       stateTask.id === id ? { ...stateTask, completed: !stateTask.completed } : stateTask
-    );
-    setTaskOption(updatedTask);
+    )
+    setTaskOption(updatedTask)
   }
+
+  const [searchValue, setSearchValue] = React.useState('')
+
+  console.log(searchValue)
 
   return (
     <>
       <div id='YourListTask'>
         <NamePage /> 
 
-        <OptionsButtons />
+        <OptionsButtons 
+        searchValue = {searchValue}
+        setSearchValue = {setSearchValue}
+        />
         <List>
           {taskOption.map(task => (
             <Task 
