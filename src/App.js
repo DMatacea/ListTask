@@ -24,7 +24,25 @@ function App() {
     setTaskOption(updatedTask)
   }
 
-  const [searchValue, setSearchValue] = React.useState('')
+  const deleteTask = (id) => {
+    const updatedTasks = taskOption.filter(task => task.id !== id)
+    setTaskOption(updatedTasks)
+  };
+
+  const completedTask = taskOption.filter(
+    task => !!task.completed
+  ).length
+
+  const totalTask = taskOption.length
+
+  const [searchValue, setSearchValue] = useState('')
+
+  const searchedTask = taskOption.filter(
+    (textLower) => {
+      const taskText = textLower.text.toLowerCase()
+      const searchtext = searchValue.toLowerCase()
+      return taskText.includes(searchtext)
+    })
 
   console.log(searchValue)
 
@@ -36,14 +54,17 @@ function App() {
         <OptionsButtons 
         searchValue = {searchValue}
         setSearchValue = {setSearchValue}
+        completedTask = {completedTask}
+        totalTask = {totalTask}
         />
         <List>
-          {taskOption.map(task => (
+          {searchedTask.map(task => (
             <Task 
               key={task.id} 
               text={task.text}
               completed={task.completed}
               onToggle={() => toggleTask(task.id)}
+              onDelete = {() => deleteTask(task.id)}
             />
           ))}
         </List>

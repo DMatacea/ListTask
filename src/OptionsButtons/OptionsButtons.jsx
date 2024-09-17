@@ -1,13 +1,21 @@
 import React from 'react';
-import './OptionsButtons.css'
+import './OptionsButtons.css';
 
-function OptionsButtons({searchValue, setSearchValue}){
+function OptionsButtons({searchValue, setSearchValue, completedTask, totalTask}){
     return(
 
         <div id="optionsButtons">
-            <button>Task</button>
+            <button>Task
+                <p id='complete'>
+                    {totalTask}
+                </p>
+            </button>
             <button>Doing</button>
-            <button>Finished <p id='complete'>0</p></button>
+            <button>Finished 
+                <p id='complete'>
+                    {completedTask}
+                </p>
+            </button>
             <input  
                 placeholder='Search'
                 value={searchValue}                

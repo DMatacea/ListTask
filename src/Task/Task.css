@@ -1,5 +1,6 @@
 li{
     /* font-size: 500; */
+    position: relative;
     list-style-type: none;
     border: 1px solid var(--border-element);
     background: var(--white);
@@ -13,4 +14,13 @@ li{
 span{
     font-size: 16px;
     
+}
+
+#imgDelete{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
 }
