@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/git@github.com:DMatacea/ListTask.git/static/css/main.69a0a7de.css",
+    "main.js": "/git@github.com:DMatacea/ListTask.git/static/js/main.48eace07.js",
+    "index.html": "/git@github.com:DMatacea/ListTask.git/index.html",
+    "main.69a0a7de.css.map": "/git@github.com:DMatacea/ListTask.git/static/css/main.69a0a7de.css.map",
+    "main.48eace07.js.map": "/git@github.com:DMatacea/ListTask.git/static/js/main.48eace07.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.69a0a7de.css",
+    "static/js/main.48eace07.js"
+  ]
+}
