@@ -98,7 +98,7 @@ function App() {
             completed = {task.completed}
             onToggle = {() => toggleTask(task.id)}
             onDelete = {() => deleteTask(task.id)}
-            stateCompletedTask = {stateCompletedTask}
+            onCreate = {stateCompletedTask}
             />
           ))}
         </List>
