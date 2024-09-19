@@ -1,9 +1,19 @@
-import './Filter.css'
+import React from 'react';
+import './Filter.css';
 
-function Filter(){
-    return (
-      <input placeholder="Introduce una nueva tarea" id='input'/>
-    )
+function Filter({inputValue, setInputValue}) {
+
+  return (
+    <>
+      <input
+        type='text'
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        placeholder="Write a new task"
+        id='input'
+      />
+    </>
+  );
 }
 
-export {Filter}
+export { Filter };

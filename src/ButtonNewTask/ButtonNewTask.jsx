@@ -1,16 +1,22 @@
-import './ButtonNewTask.css'
+import React from 'react';
+import './ButtonNewTask.css';
 
-function CreateAndDeleteButton(){
-    return(
-        <section id='CreateAndDelete'>
-            <button
-            className='CreateButton' onClick={() => console.log('Create button')}
-            >Create</button> 
-            <button>Delete</button>
-        </section>
-
-
-    )
+function CreateAndDeleteButton({onClear, onCreate}) {
+  return (
+    <section id='CreateAndDelete'>
+      <button 
+      className='CreateButton' 
+      onClick={onCreate}
+      >
+        Create
+      </button>
+      <button 
+        onClick={onClear}
+      >
+        Delete
+      </button>
+    </section>
+  );
 }
 
-export {CreateAndDeleteButton}
+export { CreateAndDeleteButton };

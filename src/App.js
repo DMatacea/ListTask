@@ -12,11 +12,14 @@ import { SetUpTask } from './SetUpTask/SetUpTask';
 
 function App() {
   const [taskOption, setTaskOption] = useState([ 
-    { id: 1, text: "Dormir", completed: true },
-    { id: 2, text: "Comer", completed: false },
-    { id: 3, text: "Bañarse", completed: false }
+    { id: 1, text: "Cepillarse", completed: false },
+    { id: 2, text: "Desayunar", completed: false },
+    { id: 3, text: "Hacer oficio", completed: false },
+    { id: 4, text: "Bañarse", completed: false },
+    { id: 5, text: "Dormir", completed: false },
   ]);
 
+  
   const toggleTask = (id) => {
     const updatedTask = taskOption.map(stateTask => 
       stateTask.id === id ? { ...stateTask, completed: !stateTask.completed } : stateTask
@@ -28,43 +31,74 @@ function App() {
     const updatedTasks = taskOption.filter(task => task.id !== id)
     setTaskOption(updatedTasks)
   };
-
+  
   const completedTask = taskOption.filter(
     task => !!task.completed
   ).length
 
+  const stateCompletedTask = () => {
+    const finishTask = taskOption.filter(
+      task => !!task.completed
+    )
+    return setTaskOption(finishTask)
+}
+
+  const doingTask = taskOption.filter(
+    task => !task.completed
+  ).length
+  
   const totalTask = taskOption.length
-
+  
   const [searchValue, setSearchValue] = useState('')
-
+  
   const searchedTask = taskOption.filter(
     (textLower) => {
       const taskText = textLower.text.toLowerCase()
       const searchtext = searchValue.toLowerCase()
       return taskText.includes(searchtext)
     })
-
+    
+    const [inputValue, setInputValue] = useState(''); 
+    
+    const clearInput = () => {
+      setInputValue('Me hacia falta vitamina D');
+    };
+    
+    const addTask = () => {
+      if(inputValue.trim()){
+        const newTask = {
+          id: taskOption.length > 0 ? taskOption[taskOption.length -1].id + 1 : 1,
+          text: inputValue,
+          completed: false
+        }
+      setTaskOption([...taskOption, newTask])
+      setInputValue('')
+      }
+    }
   console.log(searchValue)
-
+  
   return (
     <>
       <div id='YourListTask'>
         <NamePage /> 
 
         <OptionsButtons 
-        searchValue = {searchValue}
-        setSearchValue = {setSearchValue}
-        completedTask = {completedTask}
-        totalTask = {totalTask}
-        />
+          searchValue = {searchValue}
+          setSearchValue = {setSearchValue}
+          completedTask = {completedTask}
+          totalTask = {totalTask}
+          doingTask = {doingTask}
+
+          />
         <List>
           {searchedTask.map(task => (
             <Task 
-              key={task.id} 
-              text={task.text}
-              completed={task.completed}
-              onToggle={() => toggleTask(task.id)}
-              onDelete = {() => deleteTask(task.id)}
+            key = {task.id} 
+            text ={task.text}
+            completed = {task.completed}
+            onToggle = {() => toggleTask(task.id)}
+            onDelete = {() => deleteTask(task.id)}
+            stateCompletedTask = {stateCompletedTask}
             />
           ))}
         </List>
@@ -72,8 +106,14 @@ function App() {
       <div id='SetAndChat'>
         <section id='Search'>
           <SetUpTask />
-          <Filter />
-          <CreateAndDeleteButton /> 
+          <Filter 
+            inputValue = {inputValue} 
+            setInputValue = {setInputValue}
+          />
+          <CreateAndDeleteButton 
+            onClear = {clearInput}
+            onCreate = {addTask}
+          /> 
         </section>
         <section id='Chat_GPT'>
           <Chat_GPT />

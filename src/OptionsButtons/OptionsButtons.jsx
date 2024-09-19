@@ -1,7 +1,7 @@
 import React from 'react';
 import './OptionsButtons.css';
 
-function OptionsButtons({searchValue, setSearchValue, completedTask, totalTask}){
+function OptionsButtons({searchValue, setSearchValue, completedTask, totalTask, doingTask}){
     return(
 
         <div id="optionsButtons">
@@ -10,7 +10,11 @@ function OptionsButtons({searchValue, setSearchValue, completedTask, totalTask})
                     {totalTask}
                 </p>
             </button>
-            <button>Doing</button>
+            <button>Doing
+                <p id='complete'>
+                    {doingTask}
+                </p>
+            </button>
             <button>Finished 
                 <p id='complete'>
                     {completedTask}
