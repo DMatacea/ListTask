@@ -1,31 +1,34 @@
 import React from 'react';
 import './OptionsButtons.css';
 
-function OptionsButtons({searchValue, setSearchValue, completedTask, totalTask, doingTask}){
+function OptionsButtons(props){
     return(
 
         <div id="optionsButtons">
-            <button>Task
+            <button onClick={props.allTask}>
+                Task
                 <p id='complete'>
-                    {totalTask}
+                    {props.totalTask}
                 </p>
             </button>
-            <button>Doing
+            <button onClick={props.filterDoingTasks}>
+                Doing
                 <p id='complete'>
-                    {doingTask}
+                    {props.doingTask}
                 </p>
             </button>
-            <button>Finished 
+            <button onClick={props.filterCompletedTasks}>
+                Finished 
                 <p id='complete'>
-                    {completedTask}
+                    {props.completedTask}
                 </p>
             </button>
             <input  
                 placeholder='Search'
-                value={searchValue}                
+                value={props.searchValue}                
                 id='input'
                 onChange={(event) => {
-                    setSearchValue(event.target.value)
+                    props.setSearchValue(event.target.value)
                 }}
             />
         </div>
