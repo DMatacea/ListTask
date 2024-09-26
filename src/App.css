@@ -45,6 +45,27 @@
         border-right: none;
     }
 
+    .search{
+        display: none;
+    }
+
+    .searchShow{
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -60%);
+        width: 80%;
+        max-width: 300px;
+        background-color: var(--border-element);
+        box-shadow: 0px 4px 12px 4px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        padding: 20px;
+        border-radius: 8px;
+        opacity: 1;
+        transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0, 3.04, 0.79, -1.96);
+    }
+
     /* .floatWindowshow{
         display: block;
         opacity: 1;

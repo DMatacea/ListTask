@@ -27,7 +27,7 @@ function OptionsButtons(props){
             <input  
                 placeholder='Search'
                 value={props.searchValue}                
-                id='input'
+                id='inputSearch'
                 onChange={(event) => {
                     props.setSearchValue(event.target.value)
                 }}
