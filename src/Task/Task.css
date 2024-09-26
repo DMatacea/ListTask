@@ -1,26 +1,35 @@
 li{
+    display: flex;
     /* font-size: 500; */
     position: relative;
     list-style-type: none;
     border: 1px solid var(--border-element);
-    background: var(--white);
     border-radius: 4px;
+    background: var(--white);
     width: 92%;
     margin: 4px;
     padding: 6px 2px;
-    text-wrap: balance;
+
 }
 
-span{
-    font-size: 16px;
-    
-}
-
-#imgDelete{
+#iconDelete{
     position: absolute;
     top: 5px;
     right: 5px;
     width: 20px;
     height: 20px;
     cursor: pointer;
+    color: var(--principals-buttons);
 }
+
+#divTask{
+    margin: auto 0 auto 0;
+}
+
+span{
+    font-size: 1.6rem;
+}
+
+/* #textTask{
+    text-wrap: balance;
+} */

@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css'
 import { NamePage } from './Counter/Counter';
-import { Filter } from './Filter/Filter';
 import { List } from './List/List';
 import { Task } from './Task/Task';
-import { CreateAndDeleteButton } from './ButtonNewTask/ButtonNewTask';
 import { OptionsButtons } from './OptionsButtons/OptionsButtons';
-import { Chat_GPT } from './Chat-GPT/Chat-GPT';
+import { ChatGPT } from './ChatGPT/ChatGPT';
 import { SetUpTask } from './SetUpTask/SetUpTask';
+import { FloatingCreate } from './FloatingCreate/FloatingCreate'
 
 
 function App() {
@@ -25,9 +24,26 @@ function App() {
   
   const [searchValue, setSearchValue] = useState('')
   
-  const [inputValue, setInputValue] = useState(''); 
+  const [inputValue, setInputValue] = useState('')
+
+  const [isVisible, setIsVisible] = useState(false)
+
+  const [isMobile, setIsMobile] = useState(false);
   
   const totalTask = taskOption.length
+  
+  //useEffect se encarga de detectar los cambios de tamaño del ordenador.
+  
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768); 
+    };
+
+    window.addEventListener('resize', checkMobile);
+    checkMobile();
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   
   //ToggleTask se encarga de marcar las tareas finalizadas.
 
@@ -99,21 +115,29 @@ function App() {
     }
   }
   
-  //clearInput se encarga de mantener limpio el input del boton Create
+  //clearInput se encarga de mantener limpio el input del boton Create.
 
   const clearInput = () => {
     setInputValue('');
   };
 
-  //allTask se encarga de volver a mostrar todas las tareas por medio del boton Task
+  //allTask se encarga de volver a mostrar todas las tareas por medio del boton Task.
   
   const allTask = () => {
     setFilterFinishedTask(taskOption)
   }
+
+  //floatingCreateTask se encarga de la visualizacion de la ventana flotante create.
+
+  const floatingCreateTask = () => {
+    if (isMobile){
+      setIsVisible(!isVisible)
+    }
+  }
   
   return (
     <>
-      <div id='YourListTask'>
+      <div id='yourListTask'>
         <NamePage /> 
 
         <OptionsButtons 
@@ -137,22 +161,33 @@ function App() {
             />
           ))}
         </List>
+        <FloatingCreate
+          floatingActivation = {floatingCreateTask}
+        />
+
       </div>
-      <div id='SetAndChat'>
-        <section id='Search'>
-          <SetUpTask />
-          <Filter 
+      {isMobile ? (
+        <div className={`search${isVisible ? 'Show' : ''}`}>
+          <SetUpTask 
             inputValue = {inputValue} 
             setInputValue = {setInputValue}
-          />
-          <CreateAndDeleteButton 
             onClear = {clearInput}
             onCreate = {addTask}
-          /> 
-        </section>
-        <section id='Chat_GPT'>
-          <Chat_GPT />
-        </section>
+          />
+        </div>
+      ) : (
+        <div className='search'>
+        <SetUpTask 
+          inputValue = {inputValue} 
+          setInputValue = {setInputValue}
+          onClear = {clearInput}
+          onCreate = {addTask}
+        />
+        </div>
+      )
+      }
+      <div className='chatGPT'>
+        <ChatGPT />
       </div>
     </>
   );

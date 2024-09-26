@@ -4,3 +4,44 @@ p{
     sans-serif;
     font-size: 36px;
 }
+
+#input{
+    margin-top: 4px;
+    background: var(--white);
+    border: 1px solid var(--principals-buttons);
+    border-radius: 2px;
+    height: 28px;
+    width: 190px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+}
+
+#input:focus{
+    outline-color: var(--principals-buttons);
+}
+
+#CreateAndDelete{
+    display: flex;
+    width: 160px;
+    justify-content: space-between;
+    margin-top: 4px;
+}
+
+#CreateAndDelete button{
+    background-color: var(--principals-buttons);
+    color: var(--white);
+    margin: 0 6px;
+}
+
+.setUpTask{
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 92%;
+    height: 96%;
+    border: 1px solid var(--border-element);
+    border-radius: 8px;
+}

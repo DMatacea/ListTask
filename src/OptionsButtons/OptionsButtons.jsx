@@ -1,3 +1,4 @@
+import { ImSearch } from "react-icons/im";
 import React from 'react';
 import './OptionsButtons.css';
 
@@ -31,6 +32,8 @@ function OptionsButtons(props){
                     props.setSearchValue(event.target.value)
                 }}
             />
+            <ImSearch id='iconSearch'/>
+            
         </div>
     )
 }

@@ -1,0 +1,19 @@
+#activationCreate{
+    display: none;
+}
+
+@media(max-width : 768px){
+    #activationCreate{
+        display: block;
+        position: absolute;
+        right: 2em;
+        bottom: 1.5em;
+        cursor: pointer;
+    }
+
+    #iconActivationCreate{  
+        width: 9vw;
+        height: 9vh;
+        color: var(--section-importan);
+    }
+}

@@ -1,4 +1,4 @@
-function Chat_GPT(){
+function ChatGPT(){
     return(
         <p>
             Uso de Chat-GPT
@@ -6,4 +6,4 @@ function Chat_GPT(){
     )
 }
 
-export{Chat_GPT}
+export{ChatGPT}

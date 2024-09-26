@@ -1,35 +1,53 @@
-#YourListTask{
-    display: flex;
-    flex-direction: column;
-    grid-template-rows: auto 300px;
-    width: 60%;
+#yourListTask{
+    grid-row: 1/3;
     height: 96%;
-    /* border: 3px solid var(--section-importan); */
     border-right: 1px solid var(--section-importan);
-    /* border-radius: 8px; */
     margin: 4px 0 4px 4px;
     padding-right: 8px;
 }
 
-#SetAndChat{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 40%;
-    height: 96%;    
-    /* border: 3px solid var(--section-importan); */
-    border-radius: 8px;
-    margin: 4px;
+.search{
+    display: grid;
+    place-items: center;
 }
 
-#Search{
+.chatGPT{
+    /* flex: 1; */
+    display: block;
     width: 92%;
-    height: 20%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid var(--border-element);
+    height: 100%;
+}
+
+/* .floatWindow{
+    visibility: hidden;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    width: 80%;
+    max-width: 300px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    padding: 20px;
     border-radius: 8px;
-    margin: 8px 0;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+} */
+
+@media (max-width: 768px) {
+    .chatGPT{
+        display: none;
+    }
+
+    #yourListTask{
+        width: 100vw;
+        border-right: none;
+    }
+
+    /* .floatWindowshow{
+        display: block;
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    } */
 }

@@ -1,13 +1,12 @@
 import "./Counter.css"
 
-function NamePage({}) {
+function NamePage() {
   return (
     <section id="namePage">
       <p>
         Your List Task
       </p>    
     </section>
-
   );
 }
 
