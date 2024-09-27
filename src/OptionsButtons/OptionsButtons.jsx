@@ -1,6 +1,7 @@
 import { ImSearch } from "react-icons/im";
 import React from 'react';
 import './OptionsButtons.css';
+import { ActivationInputSearch } from '../ActivationInputSearchActivation/ActivationInputSearch'
 
 function OptionsButtons(props){
     return(
@@ -24,15 +25,13 @@ function OptionsButtons(props){
                     {props.completedTask}
                 </p>
             </button>
-            <input  
-                placeholder='Search'
-                value={props.searchValue}                
-                id='inputSearch'
-                onChange={(event) => {
-                    props.setSearchValue(event.target.value)
-                }}
-            />
-            <ImSearch id='iconSearch'/>
+            <section id="inputSearchPC">
+                <ActivationInputSearch 
+                    searchValue = {props.searchValue}
+                    setSearchValue = {props.setSearchValue}
+                />    
+            </section>
+            <ImSearch id='iconSearch' onClick={props.inputActivation}/>
             
         </div>
     )

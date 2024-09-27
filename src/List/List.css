@@ -5,3 +5,9 @@ ul{
     margin: 12px 0 0 0;
     padding: 0;
 }
+
+@media(max-width : 768px){
+    ul{
+        margin: 8px 0 0 0;
+    }
+}

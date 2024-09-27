@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './App.css'
 import { NamePage } from './Counter/Counter';
+import { OptionsButtons } from './OptionsButtons/OptionsButtons';
+import { ActivationInputSearch } from './ActivationInputSearchActivation/ActivationInputSearch'
 import { List } from './List/List';
 import { Task } from './Task/Task';
-import { OptionsButtons } from './OptionsButtons/OptionsButtons';
+import { FloatingCreate } from './FloatingCreate/FloatingCreate'
 import { ChatGPT } from './ChatGPT/ChatGPT';
 import { SetUpTask } from './SetUpTask/SetUpTask';
-import { FloatingCreate } from './FloatingCreate/FloatingCreate'
-
 
 function App() {
   const [taskOption, setTaskOption] = useState([ 
@@ -26,7 +26,9 @@ function App() {
   
   const [inputValue, setInputValue] = useState('')
 
-  const [isVisible, setIsVisible] = useState(false)
+  const [isWindowVisible, setisWindowVisible] = useState(false)
+
+  const [isInputVisible, setIsInputVisible] = useState(false)
 
   const [isMobile, setIsMobile] = useState(false);
   
@@ -131,25 +133,37 @@ function App() {
 
   const floatingCreateTask = () => {
     if (isMobile){
-      setIsVisible(!isVisible)
+      setisWindowVisible(!isWindowVisible)
     }
+  }  
+  
+  const InputSearchMobile = () => {
+    setIsInputVisible(!isInputVisible)
   }
   
   return (
     <>
       <div id='yourListTask'>
         <NamePage /> 
-
+        
         <OptionsButtons 
-          searchValue = {searchValue}
-          setSearchValue = {setSearchValue}
           completedTask = {completedTask}
           totalTask = {totalTask}
           doingTask = {doingTask}
           filterCompletedTasks = {filterCompletedTasks}
           allTask = {allTask}
           filterDoingTasks = {filterDoingTasks}
-        />
+          inputActivation = {InputSearchMobile}
+          isMobile = {isMobile}
+        /> 
+        {isMobile && (
+          <section id={`inputActivation${isInputVisible? 'Visible':''}`} >
+            <ActivationInputSearch
+            searchValue = {searchValue}
+            setSearchValue = {setSearchValue}
+            />
+          </section>)}
+        
         <List>
           {searchedTask.map(task => (
             <Task 
@@ -167,7 +181,7 @@ function App() {
 
       </div>
       {isMobile ? (
-        <div className={`search${isVisible ? 'Show' : ''}`}>
+        <div className={`search${isWindowVisible ? 'Show' : ''}`}>
           <SetUpTask 
             inputValue = {inputValue} 
             setInputValue = {setInputValue}

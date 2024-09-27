@@ -10,6 +10,8 @@
 button{
     display: flex;
     align-items: center;
+
+
     background: var(--principals-buttons);
     color: var(--white);
     border: none;
@@ -30,19 +32,6 @@ button{
     text-align: center;
 }
 
-#input{
-    display: block;
-    margin-top: 4px;
-    background: var(--white);
-    border: 1px solid var(--principals-buttons);
-    border-radius: 2px;
-    height: 28px;
-    width: 190px;
-    font-size: 14px;
-    font-weight: 600;
-    text-align: center;
-}
-
 #iconSearch{
     display: none;
 }
@@ -56,14 +45,14 @@ button{
         display: none;
     }
 
-    #inputSearch{
-        display: none;
-    }
-
     #iconSearch{
         display: block;
         width: 5vw;
         height: 5vh;
         margin: 0;
+    }
+
+    #inputSearchPC{
+        display: none;
     }
 }

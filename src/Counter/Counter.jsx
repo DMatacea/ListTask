@@ -3,7 +3,7 @@ import "./Counter.css"
 function NamePage() {
   return (
     <section id="namePage">
-      <p>
+      <p className="tituloApp">
         Your List Task
       </p>    
     </section>

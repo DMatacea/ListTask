@@ -18,22 +18,9 @@
     height: 100%;
 }
 
-/* .floatWindow{
-    visibility: hidden;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -60%);
-    width: 80%;
-    max-width: 300px;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    padding: 20px;
-    border-radius: 8px;
-    opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-} */
+#inputActivation{
+    display: none;
+}
 
 @media (max-width: 768px) {
     .chatGPT{
@@ -43,6 +30,14 @@
     #yourListTask{
         width: 100vw;
         border-right: none;
+    }
+
+    #inputActivationVisible{
+        display: block;
+    }
+    
+    #inputActivationVisible input{
+        margin: 6px auto 0 auto;
     }
 
     .search{
@@ -65,10 +60,4 @@
         opacity: 1;
         transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0, 3.04, 0.79, -1.96);
     }
-
-    /* .floatWindowshow{
-        display: block;
-        opacity: 1;
-        transform: translate(-50%, -50%);
-    } */
 }
