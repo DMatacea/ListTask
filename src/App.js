@@ -10,15 +10,35 @@ import { ChatGPT } from './ChatGPT/ChatGPT';
 import { SetUpTask } from './SetUpTask/SetUpTask';
 
 function App() {
-  const [taskOption, setTaskOption] = useState([ 
-    { id: 1, text: "Cepillarse", completed: false },
-    { id: 2, text: "Desayunar", completed: false },
-    { id: 3, text: "Hacer oficio", completed: false },
-    { id: 4, text: "Bañarse", completed: false },
-    { id: 5, text: "Dormir", completed: false },
-  ]);
+  // const defaultTask = []
+
+
+  //  const defaultTask = useState([ 
+  //    { id: 1, text: "Cepillarse", completed: false },
+  //    { id: 2, text: "Desayunar", completed: false },
+  //    { id: 3, text: "Hacer oficio", completed: false },
+  //    { id: 4, text: "Bañarse", completed: false },
+  //    { id: 5, text: "Dormir", completed: false },
+  //  ]);
+
+  //  localStorage.setItem('YOURLISTTASK', defaultTask)
+  // localStorage.removeItem('YOURLISTTASK')
+
   
-  //Estancias nuevas y de taskOption
+  //Nuevas Estancias
+
+  // const localStorageTask = localStorage.getItem(JSON.parse('YOURLISTTASK_V1'))
+
+
+  const [taskOption, setTaskOption] = useState(() => {
+    try{
+      const taskFromStorage = window.localStorage.getItem('YOURLISTTASK_V1')
+      return taskFromStorage ? JSON.parse(taskFromStorage) : []
+    } catch (error){
+      console.error('Error accesing localStorage: ', error)
+      return []
+    }
+  })
 
   const [filterFinishedTask, setFilterFinishedTask] = useState(taskOption)
   
@@ -34,6 +54,12 @@ function App() {
   
   const totalTask = taskOption.length
   
+  //useEffect se encarga de detectar los cambios en la lista y estar sincronizado con taskOption
+
+  useEffect(() => {
+    window.localStorage.setItem('YOURLISTTASK_V1', JSON.stringify(taskOption))
+  }, [taskOption])
+  
   //useEffect se encarga de detectar los cambios de tamaño del ordenador.
   
   useEffect(() => {
@@ -46,7 +72,7 @@ function App() {
 
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
-  
+
   //ToggleTask se encarga de marcar las tareas finalizadas.
 
   const toggleTask = (id) => {
@@ -155,6 +181,8 @@ function App() {
           filterDoingTasks = {filterDoingTasks}
           inputActivation = {InputSearchMobile}
           isMobile = {isMobile}
+          searchValue = {searchValue}
+          setSearchValue = {setSearchValue}
         /> 
         {isMobile && (
           <section id={`inputActivation${isInputVisible? 'Visible':''}`} >
