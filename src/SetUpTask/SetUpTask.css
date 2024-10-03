@@ -5,44 +5,59 @@ p{
     font-size: 36px;
 }
 
-#input{
+.inputCreation{
     margin-top: 4px;
-    background: var(--white);
-    border: 1px solid var(--principals-buttons);
-    border-radius: 2px;
-    height: 28px;
-    width: 190px;
+    background: none;
+    border: 1px solid var(--border-element);
+    border-radius: 16px;
+    height: 36px;
+    width: 100%;
     font-size: 14px;
     font-weight: 600;
     text-align: center;
 }
 
-#input:focus{
-    outline-color: var(--principals-buttons);
+.inputCreation:hover{
+    outline-color: var(--hover);
+    background: var(--hover);
+    color: var(--white);
+    cursor: pointer;
 }
 
 #CreateAndDelete{
     display: flex;
     width: 160px;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 4px;
 }
 
-#CreateAndDelete button{
-    background-color: var(--principals-buttons);
-    color: var(--white);
-    margin: 0 6px;
-}
-
 .setUpTask{
-    gap: 5px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: none;
     width: 92%;
     height: 96%;
-    border: 1px solid var(--border-element);
     border-radius: 8px;
     margin-left: 0.6em;
 }
+
+.CreateButton{
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 16px;
+    background: var(--border-element);
+    font-weight: 600;
+    font-size: 1.6rem;
+}
+
+.CreateButton:hover{
+    color: var(--white);
+    background: var(--principals-buttons);
+}
+
+/* .setUpTask:hover{
+    background: var(--principals-buttons);
+} */

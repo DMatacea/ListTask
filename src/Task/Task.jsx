@@ -3,27 +3,28 @@ import './Task.css'
 
 function Task({ text, completed, onToggle, onDelete }) {
   return (
-    <li>
-      <div id="divTask">
+    <li className="listOfTask">
+      <section className="sectionCheckbox">
         <input 
+          className="inputcheckbox"
           type="checkbox" 
           checked={completed} 
           onChange={onToggle} 
         />
-      </div>
-      <div id="divTask">
+      </section>
+      <section className="sectionTextTask">
         <span 
-          id="textTask"
+          className="textTask"
           style={
             { textDecoration: completed ? 'line-through' : 'none' }
           }
         >
           {text}
         </span>
-      </div>
-      <div id="divTask divTaskDelete">
-        <MdDelete onClick={onDelete} id="iconDelete"/>
-      </div>
+      </section>
+      <section className="sectionIconDelete">
+        <MdDelete onClick={onDelete} className="iconDelete"/>
+      </section>
     </li>
   );
 }

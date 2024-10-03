@@ -1,8 +1,8 @@
 :root{
-  --fondo-page: #EBF4F6;
+  --fondo-page: #eef8f9;
   --section-importan: #071952;
-  --border-element: #37B7C3;
-  --title: #071952;
+  --border-element: #b1b8c1;
+  --hover: #8cbdfd;
   --principals-buttons: #088395;
   --black: black;
   --white: white;
@@ -16,7 +16,7 @@
   position: relative;
   width: 100vw;
   height: 100vh;
-  background:  radial-gradient(circle, #7FC7D9, #DBE2EF);
+  background: var(--fondo-page);
 }
 
 body {

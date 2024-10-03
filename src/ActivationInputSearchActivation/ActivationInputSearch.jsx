@@ -6,7 +6,7 @@ function ActivationInputSearch(props){
             <input
                 placeholder='Search'
                 value={props.searchValue}                
-                id='inputSearch'
+                className='inputSearch'
                 onChange={(event) => {
                     props.setSearchValue(event.target.value)
             }}

@@ -1,16 +1,22 @@
-#inputSearch{
+.inputSearch{
     display: block;
     margin-top: 4px;
-    background: var(--white);
-    border: 1px solid var(--principals-buttons);
-    border-radius: 2px;
-    height: 28px;
-    width: 190px;
+    background: none;
+    border: 1px solid var(--border-element);
+    border-radius: 16px;
+    height: 36px;
+    width: 380px;
     font-size: 14px;
     font-weight: 600;
     text-align: center;
 }
 
+.inputSearch:hover{
+    outline-color: var(--hover);
+    background: var(--hover);
+    border: none;
+    color: var(--white);
+}
 /* @media(max-width : 768px){
 
 } */

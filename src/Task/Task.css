@@ -1,35 +1,45 @@
-li{
+.listOfTask{
     display: flex;
-    /* font-size: 500; */
     position: relative;
     list-style-type: none;
-    border: 1px solid var(--border-element);
-    border-radius: 4px;
+    border-radius: 16px;
     background: var(--white);
     width: 92%;
+    margin: 8px 0px;
+    padding: 12px 12px;
+}
+
+.sectionCheckbox{
     margin: 4px;
-    padding: 6px 2px;
-
 }
 
-#iconDelete{
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    color: var(--principals-buttons);
+.inputcheckbox{
+    margin: 8px;
 }
 
-#divTask{
-    margin: auto 0 auto 0;
+.sectionTextTask{
+    width: 90%;
+    align-content: center;
 }
 
-span{
+.textTask{
     font-size: 1.6rem;
 }
 
-/* #textTask{
-    text-wrap: balance;
-} */
+.sectionIconDelete{
+    width: 28px;
+    align-content: center;
+}
+
+.iconDelete{
+    width: 24px;
+    height: 24px;
+    color: var(--border-element);
+}
+
+.iconDelete:hover{
+    color: var(--principals-buttons);
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+}

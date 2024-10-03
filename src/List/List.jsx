@@ -2,7 +2,7 @@ import './List.css'
 
 function List({children}){
     return (
-      <ul>
+      <ul className='containerUl'>
         {children}
       </ul>
     )

@@ -12,20 +12,20 @@ function SetUpTask(props){
                 value={props.inputValue}
                 onChange={(e) => props.setInputValue(e.target.value)}
                 placeholder="Write a new task"
-                id='input'
+                className='inputCreation'
                 />
                 <section id='CreateAndDelete'>
-                <button 
-                    className='CreateButton' 
-                    onClick={props.onCreate}
-                >
-                    Create
-                </button>
-                <button 
-                    onClick={props.onClear}
-                >
-                    Delete
-                </button>
+                    <button 
+                        className='CreateButton' 
+                        onClick={props.onCreate}
+                    >
+                        Create
+                    </button>
+                    {/* <button 
+                        onClick={props.onClear}
+                    >
+                        Delete
+                    </button> */}
                 </section>
             </div>
         </>

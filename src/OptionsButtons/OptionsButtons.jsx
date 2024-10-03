@@ -5,27 +5,37 @@ import { ActivationInputSearch } from '../ActivationInputSearchActivation/Activa
 
 function OptionsButtons(props){
     return(
-
-        <div id="optionsButtons">
-            <button onClick={props.allTask}>
-                Task
-                <p id='complete'>
-                    {props.totalTask}
-                </p>
-            </button>
-            <button onClick={props.filterDoingTasks}>
-                Doing
-                <p id='complete'>
-                    {props.doingTask}
-                </p>
-            </button>
-            <button onClick={props.filterCompletedTasks}>
-                Finished 
-                <p id='complete'>
-                    {props.completedTask}
-                </p>
-            </button>
-            <section id="inputSearchPC">
+        <div className="optionsButtons">
+            <section className="sectionOptionsButtons">
+                <button 
+                    className="buttonAll"
+                    onClick={props.allTask}
+                >
+                    All
+                    <p className='complete'>
+                        {props.totalTask}
+                    </p>
+                </button>
+                <button 
+                    className="buttonDoing"
+                    onClick={props.filterDoingTasks}
+                >
+                    Doing
+                    <p className='complete'>
+                        {props.doingTask}
+                    </p>
+                </button>
+                <button 
+                    className="buttonEnding"
+                    onClick={props.filterCompletedTasks}
+                >
+                    Ending 
+                    <p className='complete'>
+                        {props.completedTask}
+                    </p>
+                </button> 
+            </section>
+            <section className="inputSearchPC">
                 <ActivationInputSearch 
                     searchValue = {props.searchValue}
                     setSearchValue = {props.setSearchValue}

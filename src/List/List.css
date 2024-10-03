@@ -1,8 +1,8 @@
-ul{
+.containerUl{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 12px 0 0 0;
+    margin: 16px 0 0 0;
     padding: 0;
 }
 
