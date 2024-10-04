@@ -1,15 +1,21 @@
 import { ImSearch } from "react-icons/im";
-import React from 'react';
+import React, { useState } from 'react';
 import './OptionsButtons.css';
 import { ActivationInputSearch } from '../ActivationInputSearchActivation/ActivationInputSearch'
 
 function OptionsButtons(props){
+    const [changeColor, setChangeColor] = useState(null)
+
+    const buttonChangeColor = (buttonId) => {
+        setChangeColor(buttonId)
+    }
+    
     return(
         <div className="optionsButtons">
             <section className="sectionOptionsButtons">
                 <button 
-                    className="buttonAll"
-                    onClick={props.allTask}
+                    className={`buttonAll${changeColor === 1 ? 'Active': ''}`}
+                    onClick={() => {props.allTask(); buttonChangeColor(1)}}
                 >
                     All
                     <p className='complete'>
@@ -17,8 +23,8 @@ function OptionsButtons(props){
                     </p>
                 </button>
                 <button 
-                    className="buttonDoing"
-                    onClick={props.filterDoingTasks}
+                    className={`buttonDoing${changeColor === 2 ? 'Active': ''}`}
+                    onClick={() => {props.filterDoingTasks(); buttonChangeColor(2)}}
                 >
                     Doing
                     <p className='complete'>
@@ -26,8 +32,8 @@ function OptionsButtons(props){
                     </p>
                 </button>
                 <button 
-                    className="buttonEnding"
-                    onClick={props.filterCompletedTasks}
+                    className={`buttonEnding${changeColor === 3 ? 'Active': ''}`}
+                    onClick={() => {props.filterCompletedTasks(); buttonChangeColor(3)}}
                 >
                     Ending 
                     <p className='complete'>

@@ -9,36 +9,31 @@ import { FloatingCreate } from './FloatingCreate/FloatingCreate'
 import { ChatGPT } from './ChatGPT/ChatGPT';
 import { SetUpTask } from './SetUpTask/SetUpTask';
 
-function App() {
-  // const defaultTask = []
-
-
-  //  const defaultTask = useState([ 
-  //    { id: 1, text: "Cepillarse", completed: false },
-  //    { id: 2, text: "Desayunar", completed: false },
-  //    { id: 3, text: "Hacer oficio", completed: false },
-  //    { id: 4, text: "Bañarse", completed: false },
-  //    { id: 5, text: "Dormir", completed: false },
-  //  ]);
-
-  //  localStorage.setItem('YOURLISTTASK', defaultTask)
-  // localStorage.removeItem('YOURLISTTASK')
-
-  
-  //Nuevas Estancias
-
-  // const localStorageTask = localStorage.getItem(JSON.parse('YOURLISTTASK_V1'))
-
-
-  const [taskOption, setTaskOption] = useState(() => {
+function useLocalStorage(key, initialValue) {
+  const [storedValue, setStoredValue] = useState(() => {
     try{
-      const taskFromStorage = window.localStorage.getItem('YOURLISTTASK_V1')
-      return taskFromStorage ? JSON.parse(taskFromStorage) : []
+      const item = window.localStorage.getItem(key)
+      return item ? JSON.parse(item) : initialValue
     } catch (error){
-      console.error('Error accesing localStorage: ', error)
-      return []
+      console.error('Error accesing (getItem) localStorage: ', error)
+      return initialValue
     }
   })
+
+  const setValue = (value) => {
+    try {
+      setStoredValue(value)
+      localStorage.setItem(key, JSON.stringify(value))
+    } catch (error) {
+      console.error('Error setting (setItem) localStorage: ', error)
+    }
+  }
+
+  return [storedValue, setValue]
+}
+
+function App() {
+  const [taskOption, setTaskOption] = useLocalStorage('YOURLISTTASK_V1', [])
 
   const [filterFinishedTask, setFilterFinishedTask] = useState(taskOption)
   
@@ -53,13 +48,7 @@ function App() {
   const [isMobile, setIsMobile] = useState(false);
   
   const totalTask = taskOption.length
-  
-  //useEffect se encarga de detectar los cambios en la lista y estar sincronizado con taskOption
 
-  useEffect(() => {
-    window.localStorage.setItem('YOURLISTTASK_V1', JSON.stringify(taskOption))
-  }, [taskOption])
-  
   //useEffect se encarga de detectar los cambios de tamaño del ordenador.
   
   useEffect(() => {
@@ -166,7 +155,7 @@ function App() {
   const InputSearchMobile = () => {
     setIsInputVisible(!isInputVisible)
   }
-  
+
   return (
     <>
       <div id='yourListTask'>
@@ -176,9 +165,9 @@ function App() {
           completedTask = {completedTask}
           totalTask = {totalTask}
           doingTask = {doingTask}
-          filterCompletedTasks = {filterCompletedTasks}
           allTask = {allTask}
           filterDoingTasks = {filterDoingTasks}
+          filterCompletedTasks = {filterCompletedTasks}
           inputActivation = {InputSearchMobile}
           isMobile = {isMobile}
           searchValue = {searchValue}

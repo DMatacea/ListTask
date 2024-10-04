@@ -20,6 +20,21 @@
     width: 96px;
 }
 
+.buttonAllActive, .buttonDoingActive, .buttonEndingActive {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 42px;
+    border: none;
+    border-radius: 16px;
+    padding: 12px 8px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    background: var(--hover);
+    color: var(--white);
+    cursor: pointer;
+}
+
 .buttonEnding, .buttonDoing, .buttonAll{
     display: flex;
     align-items: center;
