@@ -11,6 +11,20 @@
     text-align: center;
 }
 
+.inputSearchColor{
+    margin-top: 4px;
+    outline-color: var(--hover);
+    background: var(--hover);
+    color: var(--white);
+    border: none;
+    border-radius: 16px;
+    height: 36px;
+    width: 380px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+}
+
 .inputSearch:hover{
     outline-color: var(--hover);
     background: var(--hover);

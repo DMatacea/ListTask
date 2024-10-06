@@ -1,6 +1,9 @@
+import { useState } from 'react'
 import './SetUpTask.css'
 
 function SetUpTask(props){
+    const [inputFocus, setInputFocus] = useState(false)
+
     return(
         <>
             <div className='setUpTask'>
@@ -8,11 +11,13 @@ function SetUpTask(props){
                     Set up task
                 </p>
                 <input
+                onFocus = {() => setInputFocus(true)}
+                onBlur = {() => setInputFocus(false)}
                 type='text'
                 value={props.inputValue}
                 onChange={(e) => props.setInputValue(e.target.value)}
                 placeholder="Write a new task"
-                className='inputCreation'
+                className= {`inputCreation${inputFocus ? 'Color' : ''}`}
                 />
                 <section id='CreateAndDelete'>
                     <button 

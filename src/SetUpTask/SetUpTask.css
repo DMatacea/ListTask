@@ -17,6 +17,19 @@ p{
     text-align: center;
 }
 
+.inputCreationColor{
+    outline-color: var(--hover);
+    margin-top: 4px;
+    background: var(--hover);
+    color: var(--white);
+    border-radius: 16px;
+    height: 36px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+}
+
 .inputCreation:hover{
     outline-color: var(--hover);
     background: var(--hover);

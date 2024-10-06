@@ -1,36 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css'
-import { NamePage } from './Counter/Counter';
-import { OptionsButtons } from './OptionsButtons/OptionsButtons';
-import { ActivationInputSearch } from './ActivationInputSearchActivation/ActivationInputSearch'
-import { List } from './List/List';
-import { Task } from './Task/Task';
-import { FloatingCreate } from './FloatingCreate/FloatingCreate'
-import { ChatGPT } from './ChatGPT/ChatGPT';
-import { SetUpTask } from './SetUpTask/SetUpTask';
-
-function useLocalStorage(key, initialValue) {
-  const [storedValue, setStoredValue] = useState(() => {
-    try{
-      const item = window.localStorage.getItem(key)
-      return item ? JSON.parse(item) : initialValue
-    } catch (error){
-      console.error('Error accesing (getItem) localStorage: ', error)
-      return initialValue
-    }
-  })
-
-  const setValue = (value) => {
-    try {
-      setStoredValue(value)
-      localStorage.setItem(key, JSON.stringify(value))
-    } catch (error) {
-      console.error('Error setting (setItem) localStorage: ', error)
-    }
-  }
-
-  return [storedValue, setValue]
-}
+import { useLocalStorage } from './UseLocalStorage'
+import { AppUI } from './AppUI';
 
 function App() {
   const [taskOption, setTaskOption] = useLocalStorage('YOURLISTTASK_V1', [])
@@ -157,71 +128,30 @@ function App() {
   }
 
   return (
-    <>
-      <div id='yourListTask'>
-        <NamePage /> 
-        
-        <OptionsButtons 
-          completedTask = {completedTask}
-          totalTask = {totalTask}
-          doingTask = {doingTask}
-          allTask = {allTask}
-          filterDoingTasks = {filterDoingTasks}
-          filterCompletedTasks = {filterCompletedTasks}
-          inputActivation = {InputSearchMobile}
-          isMobile = {isMobile}
-          searchValue = {searchValue}
-          setSearchValue = {setSearchValue}
-        /> 
-        {isMobile && (
-          <section id={`inputActivation${isInputVisible? 'Visible':''}`} >
-            <ActivationInputSearch
-            searchValue = {searchValue}
-            setSearchValue = {setSearchValue}
-            />
-          </section>)}
-        
-        <List>
-          {searchedTask.map(task => (
-            <Task 
-            key = {task.id} 
-            text ={task.text}
-            completed = {task.completed}
-            onToggle = {() => toggleTask(task.id)}
-            onDelete = {() => deleteTask(task.id)}
-            />
-          ))}
-        </List>
-        <FloatingCreate
-          floatingActivation = {floatingCreateTask}
-        />
+    <AppUI 
+    completedTask = {completedTask}
+    totalTask = {totalTask}
+    doingTask = {doingTask}
+    allTask = {allTask}
+    filterDoingTasks = {filterDoingTasks}
+    filterCompletedTasks = {filterCompletedTasks}
+    InputSearchMobile = {InputSearchMobile}
+    isMobile = {isMobile}
+    searchValue = {searchValue}
+    setSearchValue = {setSearchValue}
+    isInputVisible = {isInputVisible}
+    searchedTask = {searchedTask}
+    toggleTask = {toggleTask}
+    deleteTask = {deleteTask}
+    floatingCreateTask = {floatingCreateTask}
+    isWindowVisible = {isWindowVisible}
+    inputValue = {inputValue}
+    setInputValue = {setInputValue}
+    clearInput = {clearInput}
+    addTask = {addTask}
 
-      </div>
-      {isMobile ? (
-        <div className={`search${isWindowVisible ? 'Show' : ''}`}>
-          <SetUpTask 
-            inputValue = {inputValue} 
-            setInputValue = {setInputValue}
-            onClear = {clearInput}
-            onCreate = {addTask}
-          />
-        </div>
-      ) : (
-        <div className='search'>
-        <SetUpTask 
-          inputValue = {inputValue} 
-          setInputValue = {setInputValue}
-          onClear = {clearInput}
-          onCreate = {addTask}
-        />
-        </div>
-      )
-      }
-      <div className='chatGPT'>
-        <ChatGPT />
-      </div>
-    </>
-  );
+    />
+  )
 }
 
 export default App;

@@ -14,7 +14,8 @@ function Task({ text, completed, onToggle, onDelete }) {
       </section>
       <section className="sectionTextTask">
         <span 
-          className="textTask"
+          translate = "no"
+          className = "textTask"
           style={
             { textDecoration: completed ? 'line-through' : 'none' }
           }
