@@ -39,9 +39,9 @@ function AppUI(props) {
             <List>
                 {props.loading && <LoadingTask/>}
                 {props.error && <ErrorTask/>}
-                {(!props.loading && props.searchedTask.length > 0) && <WithoutTask/>}
+                {(!props.loading && props.searchedTask.length === 0) && <WithoutTask/>}
 
-                {props.searchedTask.length === 0 && props.searchedTask.map(task => (
+                {props.searchedTask.length > 0 && props.searchedTask.map(task => (
                     <Task 
                     key = {task.id} 
                     text ={task.text}

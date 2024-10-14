@@ -10,7 +10,7 @@ function useLocalStorage(key, initialValue) {
       try{
         const item = window.localStorage.getItem(key)
         if (item) {
-            setStoredValue(JSON.parse(item))
+          setStoredValue(JSON.parse(item))
         } else {
           setStoredValue(initialValue)
         }

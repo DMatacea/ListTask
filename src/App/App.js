@@ -17,21 +17,25 @@ function App() {
   const [isInputVisible, setIsInputVisible] = useState(false)
   const [isMobile, setIsMobile] = useState(false);
   
-  const totalTask = taskOption.length
-
   //useEffect se encarga de detectar los cambios de tamaño del ordenador.
+
+  useEffect(() => {
+    if (!loading && taskOption.length > 0) {
+      setFilterFinishedTask(taskOption);
+    }
+  }, [loading, taskOption]);
   
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768); 
     };
-
+    
     window.addEventListener('resize', checkMobile);
     checkMobile();
-
+    
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
-
+  
   //ToggleTask se encarga de marcar las tareas finalizadas.
 
   const toggleTask = (id) => {
@@ -41,9 +45,9 @@ function App() {
     setTaskOption(updatedTask)
     setFilterFinishedTask(updatedTask)
   }
-
+  
   //deleteTask se encarga de eliminar las tareas finilizadas.
-
+  
   const deleteTask = (id) => {
     const updatedTaks = taskOption.filter(task => task.id !== id)
     setTaskOption(updatedTaks)
@@ -51,10 +55,12 @@ function App() {
   };
   
   //completedTask y doingTask se encargan de ennumerar las tareas completas y finalizadas.
-
+  
   const completedTask = taskOption.filter(
     task => !!task.completed
   ).length
+  
+  const totalTask = taskOption.length
 
   const doingTask = taskOption.filter(
     task => !task.completed
