@@ -6,6 +6,9 @@ import { Task } from '../Task/Task';
 import { FloatingCreate } from '../FloatingCreate/FloatingCreate'
 import { ChatGPT } from '../ChatGPT/ChatGPT';
 import { SetUpTask } from '../SetUpTask/SetUpTask';
+import { LoadingTask } from '../LoadingTask/LoadingTask';
+import { ErrorTask } from '../ErrorTask/ErrorTask';
+import { WithoutTask } from '../WithoutTask/WithoutTask';
 
 function AppUI(props) {
     return (
@@ -34,13 +37,17 @@ function AppUI(props) {
             </section>)}
             
             <List>
-            {props.searchedTask.map(task => (
-                <Task 
-                key = {task.id} 
-                text ={task.text}
-                completed = {task.completed}
-                onToggle = {() => props.toggleTask(task.id)}
-                onDelete = {() => props.deleteTask(task.id)}
+                {props.loading && <LoadingTask/>}
+                {props.error && <ErrorTask/>}
+                {(!props.loading && props.searchedTask.length > 0) && <WithoutTask/>}
+
+                {props.searchedTask.length === 0 && props.searchedTask.map(task => (
+                    <Task 
+                    key = {task.id} 
+                    text ={task.text}
+                    completed = {task.completed}
+                    onToggle = {() => props.toggleTask(task.id)}
+                    onDelete = {() => props.deleteTask(task.id)}
                 />
             ))}
             </List>

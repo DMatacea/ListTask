@@ -4,18 +4,17 @@ import { useLocalStorage } from './UseLocalStorage'
 import { AppUI } from './AppUI';
 
 function App() {
-  const [taskOption, setTaskOption] = useLocalStorage('YOURLISTTASK_V1', [])
-
+  const {
+    storedValue : taskOption,
+    setValue : setTaskOption,
+    loading,
+    error,
+  } = useLocalStorage('YOURLISTTASK_V1', [])
   const [filterFinishedTask, setFilterFinishedTask] = useState(taskOption)
-  
   const [searchValue, setSearchValue] = useState('')
-  
   const [inputValue, setInputValue] = useState('')
-
   const [isWindowVisible, setisWindowVisible] = useState(false)
-
   const [isInputVisible, setIsInputVisible] = useState(false)
-
   const [isMobile, setIsMobile] = useState(false);
   
   const totalTask = taskOption.length
@@ -129,27 +128,28 @@ function App() {
 
   return (
     <AppUI 
-    completedTask = {completedTask}
-    totalTask = {totalTask}
-    doingTask = {doingTask}
-    allTask = {allTask}
-    filterDoingTasks = {filterDoingTasks}
-    filterCompletedTasks = {filterCompletedTasks}
-    InputSearchMobile = {InputSearchMobile}
-    isMobile = {isMobile}
-    searchValue = {searchValue}
-    setSearchValue = {setSearchValue}
-    isInputVisible = {isInputVisible}
-    searchedTask = {searchedTask}
-    toggleTask = {toggleTask}
-    deleteTask = {deleteTask}
-    floatingCreateTask = {floatingCreateTask}
-    isWindowVisible = {isWindowVisible}
-    inputValue = {inputValue}
-    setInputValue = {setInputValue}
-    clearInput = {clearInput}
-    addTask = {addTask}
-
+      loading = {loading}
+      error = {error}
+      completedTask = {completedTask}
+      totalTask = {totalTask}
+      doingTask = {doingTask}
+      allTask = {allTask}
+      filterDoingTasks = {filterDoingTasks}
+      filterCompletedTasks = {filterCompletedTasks}
+      InputSearchMobile = {InputSearchMobile}
+      isMobile = {isMobile}
+      searchValue = {searchValue}
+      setSearchValue = {setSearchValue}
+      isInputVisible = {isInputVisible}
+      searchedTask = {searchedTask}
+      toggleTask = {toggleTask}
+      deleteTask = {deleteTask}
+      floatingCreateTask = {floatingCreateTask}
+      isWindowVisible = {isWindowVisible}
+      inputValue = {inputValue}
+      setInputValue = {setInputValue}
+      clearInput = {clearInput}
+      addTask = {addTask}
     />
   )
 }
