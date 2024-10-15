@@ -20,7 +20,7 @@ function useLocalStorage(key, initialValue) {
       }finally{
         setLoading(false)
       }
-    },2000)}
+    },1200)}
     ,[key])
 
   const setValue = (value) => {

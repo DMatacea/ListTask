@@ -3,9 +3,11 @@ import './WithoutTask.css'
 function WithoutTask() {
     return(
         <>
-            <p>
-                Esta vacio
-            </p>
+            <section className = "WithoutTask">
+                <p className = "WithoutTaskFont">
+                    Create A Task
+                </p>
+            </section>
         </>
     )
 }

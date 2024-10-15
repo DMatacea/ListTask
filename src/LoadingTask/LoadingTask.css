@@ -1,0 +1,11 @@
+.listLoading{
+    width: 92%;
+    height: 9vh;
+    margin: 8px 0px;
+    padding: 12px 12px;
+    display: flex;
+    position: relative;
+    list-style-type: none;
+    border-radius: 16px;
+    background: var(--border-element);
+}

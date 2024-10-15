@@ -8,4 +8,4 @@ function List({children}){
     )
 }
 
-export {List}
+export { List }

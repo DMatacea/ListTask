@@ -3,9 +3,12 @@ import './LoadingTask.css'
 function LoadingTask() {
     return(
         <>
-            <p>
-                Estamos cargando...
-            </p>
+            <div className = "listLoading">
+            </div>
+            <div className = "listLoading">
+            </div>
+            <div className = "listLoading">
+            </div>
         </>
     )
 }
