@@ -56,6 +56,28 @@ p{
     margin-left: 0.6em;
 }
 
+.InputAndIconDeleteSetup{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.IconDeleteSetup{
+    width: 26px;
+    height: 26px;
+    color: var(--border-element);
+}
+
+.IconDeleteSetup:hover{
+    color: var(--principals-buttons);
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+}
+
 .CreateButton{
     width: 100px;
     height: 40px;

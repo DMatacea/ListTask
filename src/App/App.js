@@ -19,7 +19,7 @@ function App() {
   
   //useEffect se encarga de detectar los cambios de tamaño del ordenador.
 
-  useEffect(() => {
+  useEffect(() => { 
     if (!loading && taskOption.length > 0) {
       setFilterFinishedTask(taskOption);
     }
@@ -111,7 +111,8 @@ function App() {
   //clearInput se encarga de mantener limpio el input del boton Create.
 
   const clearInput = () => {
-    setInputValue('');
+    setInputValue('')
+    setSearchValue('')
   };
 
   //allTask se encarga de volver a mostrar todas las tareas por medio del boton Task.

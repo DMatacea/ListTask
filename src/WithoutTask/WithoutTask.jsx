@@ -4,9 +4,11 @@ function WithoutTask() {
     return(
         <>
             <section className = "WithoutTask">
-                <p className = "WithoutTaskFont">
+                <span 
+                    className = "WithoutTaskFont"
+                >
                     Create A Task
-                </p>
+                </span>
             </section>
         </>
     )

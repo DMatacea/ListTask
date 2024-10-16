@@ -1,7 +1,7 @@
 import { ImSearch } from "react-icons/im";
 import React, { useState } from 'react';
 import './OptionsButtons.css';
-import { ActivationInputSearch } from '../ActivationInputSearchActivation/ActivationInputSearch'
+import { ActivationInputSearch } from '../ActivationInputSearch/ActivationInputSearch'
 
 function OptionsButtons(props){
     const [changeColor, setChangeColor] = useState(null)
@@ -45,6 +45,7 @@ function OptionsButtons(props){
                 <ActivationInputSearch 
                     searchValue = {props.searchValue}
                     setSearchValue = {props.setSearchValue}
+                    onClear = {props.onClear}
                 />    
             </section>
             <ImSearch id='iconSearch' onClick={props.inputActivation}/>

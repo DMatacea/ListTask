@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { FaDeleteLeft } from "react-icons/fa6";
 import './SetUpTask.css'
 
 function SetUpTask(props){
@@ -10,15 +11,24 @@ function SetUpTask(props){
                 <p>
                     Set up task
                 </p>
-                <input
-                onFocus = {() => setInputFocus(true)}
-                onBlur = {() => setInputFocus(false)}
-                type='text'
-                value={props.inputValue}
-                onChange={(e) => props.setInputValue(e.target.value)}
-                placeholder="Write a new task"
-                className= {`inputCreation${inputFocus ? 'Color' : ''}`}
-                />
+                <section className = "InputAndIconDeleteSetup">
+                    <input
+                        onFocus = {() => setInputFocus(true)}
+                        onBlur = {() => setInputFocus(false)}
+                        type='text'
+                        value={props.inputValue}
+                        onChange={(e) => 
+                            props.setInputValue(e.target.value)
+                        }
+                        placeholder="Write a new task"
+                        className= {`inputCreation${inputFocus ? 'Color' : ''}`}
+                    />
+                    <FaDeleteLeft 
+                        className = "IconDeleteSetup"
+                        onClick={props.onClear}
+                    />
+                </section>
+                
                 <section id='CreateAndDelete'>
                     <button 
                         className='CreateButton' 

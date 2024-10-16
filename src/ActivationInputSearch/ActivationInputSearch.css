@@ -5,7 +5,7 @@
     border: 1px solid var(--border-element);
     border-radius: 16px;
     height: 36px;
-    width: 380px;
+    width: 368px;
     font-size: 14px;
     font-weight: 600;
     text-align: center;
@@ -19,10 +19,32 @@
     border: none;
     border-radius: 16px;
     height: 36px;
-    width: 380px;
+    width: 368px;
     font-size: 14px;
     font-weight: 600;
     text-align: center;
+}
+
+.InputAndIconDelete{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.IconDelete{
+    width: 26px;
+    height: 26px;
+    color: var(--border-element);
+}
+
+.IconDelete:hover{
+    color: var(--principals-buttons);
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
 }
 
 .inputSearch:hover{
