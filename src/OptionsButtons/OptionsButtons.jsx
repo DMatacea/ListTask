@@ -9,7 +9,6 @@ function OptionsButtons(props){
     const buttonChangeColor = (buttonId) => {
         setChangeColor(buttonId)
     }
-    
     return(
         <div className="optionsButtons">
             <section className="sectionOptionsButtons">

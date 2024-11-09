@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import './App.css'
 import { useLocalStorage } from './UseLocalStorage'
-import { AppUI } from './AppUI';
+import { AppComputer } from './AppComputer'
+import { AppMobile } from './AppMobile'
 
 function App() {
+
   const {
     storedValue : taskOption,
     setValue : setTaskOption,
     loading,
-    error,
+    error
   } = useLocalStorage('YOURLISTTASK_V1', [])
   const [filterFinishedTask, setFilterFinishedTask] = useState(taskOption)
   const [searchValue, setSearchValue] = useState('')
@@ -16,50 +18,50 @@ function App() {
   const [isWindowVisible, setisWindowVisible] = useState(false)
   const [isInputVisible, setIsInputVisible] = useState(false)
   const [isMobile, setIsMobile] = useState(false);
-  
+
   //useEffect se encarga de detectar los cambios de tamaño del ordenador.
 
-  useEffect(() => { 
+  useEffect(() => {
     if (!loading && taskOption.length > 0) {
       setFilterFinishedTask(taskOption);
     }
   }, [loading, taskOption]);
-  
+
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768); 
-    };
-    
-    window.addEventListener('resize', checkMobile);
-    checkMobile();
-    
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-  
+      setIsMobile(window.innerWidth <= 768)
+    }
+
+    window.addEventListener('resize', checkMobile)
+    checkMobile()
+
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
   //ToggleTask se encarga de marcar las tareas finalizadas.
 
   const toggleTask = (id) => {
-    const updatedTask = taskOption.map(stateTask => 
+    const updatedTask = taskOption.map(stateTask =>
       stateTask.id === id ? { ...stateTask, completed: !stateTask.completed } : stateTask
     )
     setTaskOption(updatedTask)
     setFilterFinishedTask(updatedTask)
   }
-  
+
   //deleteTask se encarga de eliminar las tareas finilizadas.
-  
+
   const deleteTask = (id) => {
     const updatedTaks = taskOption.filter(task => task.id !== id)
     setTaskOption(updatedTaks)
     setFilterFinishedTask(updatedTaks)
   };
-  
+
   //completedTask y doingTask se encargan de ennumerar las tareas completas y finalizadas.
-  
+
   const completedTask = taskOption.filter(
     task => !!task.completed
   ).length
-  
+
   const totalTask = taskOption.length
 
   const doingTask = taskOption.filter(
@@ -85,14 +87,14 @@ function App() {
   }
 
   //searchedTask filtra las tareas por medio del input de OptionsButtons.
-  
+
   const searchedTask = filterFinishedTask.filter(
     (textLower) => {
       const taskText = textLower.text.toLowerCase()
       const searchtext = searchValue.toLowerCase()
       return taskText.includes(searchtext)
     })
-    
+
   //addTask crea y añade las nuevas tareas.
 
   const addTask = () => {
@@ -107,7 +109,7 @@ function App() {
       setInputValue('')
     }
   }
-  
+
   //clearInput se encarga de mantener limpio el input del boton Create.
 
   const clearInput = () => {
@@ -116,7 +118,7 @@ function App() {
   };
 
   //allTask se encarga de volver a mostrar todas las tareas por medio del boton Task.
-  
+
   const allTask = () => {
     setFilterFinishedTask(taskOption)
   }
@@ -127,37 +129,40 @@ function App() {
     if (isMobile){
       setisWindowVisible(!isWindowVisible)
     }
-  }  
-  
+  }
+
   const InputSearchMobile = () => {
     setIsInputVisible(!isInputVisible)
   }
 
+  const props = {allTask,
+                filterDoingTasks,
+                filterCompletedTasks,
+                InputSearchMobile,
+                isMobile,
+                searchValue,
+                setSearchValue,
+                isInputVisible,
+                searchedTask,
+                toggleTask,
+                deleteTask,
+                floatingCreateTask,
+                isWindowVisible,
+                inputValue,
+                setInputValue,
+                clearInput,
+                addTask,
+                completedTask,
+                totalTask,
+                doingTask,
+                loading,
+                error
+                }
+
   return (
-    <AppUI 
-      loading = {loading}
-      error = {error}
-      completedTask = {completedTask}
-      totalTask = {totalTask}
-      doingTask = {doingTask}
-      allTask = {allTask}
-      filterDoingTasks = {filterDoingTasks}
-      filterCompletedTasks = {filterCompletedTasks}
-      InputSearchMobile = {InputSearchMobile}
-      isMobile = {isMobile}
-      searchValue = {searchValue}
-      setSearchValue = {setSearchValue}
-      isInputVisible = {isInputVisible}
-      searchedTask = {searchedTask}
-      toggleTask = {toggleTask}
-      deleteTask = {deleteTask}
-      floatingCreateTask = {floatingCreateTask}
-      isWindowVisible = {isWindowVisible}
-      inputValue = {inputValue}
-      setInputValue = {setInputValue}
-      clearInput = {clearInput}
-      addTask = {addTask}
-    />
+    <>
+      {isMobile=== true ?  (<AppMobile {...props}/>): (<AppComputer {...props}/>)}
+    </>
   )
 }
 

@@ -10,20 +10,77 @@
 }
 
 .sectionCheckbox{
-    margin: 4px;
+    margin: auto;
+    padding: 8px;
+    height: 41px;
+    width: 41px;
+}
+
+.sectionCheckbox:hover{
+    background: var(--hover);
+    border-radius: 50%;
 }
 
 .inputcheckbox{
-    margin: 8px;
+    margin: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ccc;
+    border-radius: 4px; 
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.inputcheckbox:not(:checked){
+    background-color: var(--white);
+}
+
+.inputcheckbox:checked{
+    background-color: var(--principals-buttons);
+    border-color: var(--principals-buttons);
+}
+
+.inputcheckbox:checked::before {
+    content: '✔';
+    font-size: 14px;
+    color: white; /* Color del icono */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.inputcheckbox:hover {
+    border-color: #4CAF50;
 }
 
 .sectionTextTask{
     width: 90%;
     align-content: center;
+    margin-left: 6px;
+    max-height: 120px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--white) transparent;
+}
+
+.sectionTextTask:hover{
+    scrollbar-color: var(--border-element) transparent;
 }
 
 .textTask{
     font-size: 1.6rem;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: pre-wrap;
+}
+
+.textTaskInput{
+    
 }
 
 .sectionIconDelete{

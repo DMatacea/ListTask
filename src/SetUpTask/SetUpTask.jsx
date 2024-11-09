@@ -5,6 +5,11 @@ import './SetUpTask.css'
 function SetUpTask(props){
     const [inputFocus, setInputFocus] = useState(false)
 
+    // const handleKeyPress = (e) => {
+    //     if(e.key === 'Enter' && !e.shifKey) {
+    //         props.onCreate
+    //     }
+    // }
     return(
         <>
             <div className='setUpTask'>
@@ -17,6 +22,7 @@ function SetUpTask(props){
                         onBlur = {() => setInputFocus(false)}
                         type='text'
                         value={props.inputValue}
+                        // onKeyDown={handleKeyPress}
                         onChange={(e) => 
                             props.setInputValue(e.target.value)
                         }
